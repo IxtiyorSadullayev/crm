@@ -1,6 +1,6 @@
-const {Scheme, model} = require("mongoose");
+const {Schema, model} = require("mongoose");
 
-const crmScheme = new Scheme({
+const crmScheme = new Schema({
   nameCenter: {
     type: String,
     required: true,
