@@ -31,6 +31,8 @@ const crmScheme = new Scheme({
     unique: true,
   },
 
+}, {
+  timestamps: true,
 })
 
 module.exports = model("crmScheme", crmScheme)
