@@ -35,4 +35,4 @@ const crmScheme = new Scheme({
   timestamps: true,
 })
 
-module.exports = model("crmScheme", crmScheme)
+module.exports = model("CRM", crmScheme)
