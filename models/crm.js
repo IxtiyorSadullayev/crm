@@ -1,6 +1,6 @@
-const {Scheme, model} = require("mongoose");
+const {Schema, model} = require("mongoose");
 
-const crmScheme = new Scheme({
+const crmSchema = new Schema({
   nameCenter: {
     type: String,
     required: true,
@@ -35,4 +35,4 @@ const crmScheme = new Scheme({
   timestamps: true,
 })
 
-module.exports = model("CRM", crmScheme)
+module.exports = model("CRM", crmSchema)
