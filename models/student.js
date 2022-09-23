@@ -35,4 +35,4 @@ const studentScheme = new Schema({
   { timestamps: true }
 );
 
-module.exports = model("STUDENT", crmScheme)
+module.exports = model("STUDENT", studentScheme)
