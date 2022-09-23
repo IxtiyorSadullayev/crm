@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-export const connectDB = async() =>{
+exports.connectDB = async() =>{
     mongoose.connect(process.env.DBURL)
         .then(()=>{
             console.log('Bazaga ulandi')
