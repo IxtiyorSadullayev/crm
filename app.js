@@ -10,4 +10,14 @@ app.use(cors())
 
 app.use('/', require('./routers/crm.router'))
 
+app.use((req,res,next)=>{
+    const error = new Error('Hatolik mavjud')
+    next(error)
+})
+
+app.use((error, req,res,next)=>{
+    res.status(500).json(error.message)
+})
+
+
 module.exports = app;

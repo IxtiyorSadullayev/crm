@@ -1,6 +1,6 @@
 1. Crm route lari.
-1.1 Crm ni ro`yhatga oladigan route
-1.2 Crm ni login qilish uchun kerak bo`lgan route
+1.1 Crm ni ro`yhatga oladigan route <bitdi>
+1.2 Crm ni login qilish uchun kerak bo`lgan route <bitdi>
 1.3 Crm ni parolini unutgan vaqtda parolini almashtirish uchun kerak bo`ladigan route 
 1.4 Crm lar ro`yhatini beradigan route 
 ...... barchasi hali yangilanadi. Sababi barchasining analitikasini ko`rib turish lozim bo`ladi.
