@@ -9,6 +9,8 @@ app.use(cors())
 
 
 app.use('/', require('./routers/crm.router'))
+app.use('/teacher', require('./routers/teacher.router'))
+
 
 app.use((req,res,next)=>{
     const error = new Error('Hatolik mavjud')
