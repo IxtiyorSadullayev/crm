@@ -1,7 +1,8 @@
 const router = require('express').Router();
 
 //     /teacher/
-router.post('/')
+router.route('/').post().get();
+router.route('/:id').patch().delete();
 
 
-module.exports = router;
+module.exports = router; 

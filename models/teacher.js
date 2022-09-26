@@ -8,7 +8,8 @@ const teacherSchema = new mongoose.Schema({
     username: {required: [true, 'Enter Teacher username'], type: String, unique:true},
     password: {required: [true, 'Enter Teacher password'], type: String},
     phone: {required: [true, 'Enter Teacher phone'], type: String, unique:true},
-    science:{required:[true,'Enter Teacher science'], type: String}
+    science:{required:[true,'Enter Teacher science'], type: String},
+    email:{type: String, required: [true, "Enter Teacher email"], unique: true}
 },{
     timestamps:true
 })
