@@ -70,7 +70,7 @@ exports.updatePassword = async(req,res,next)=>{
 
 
 
-// Super user uchun route lar
+// Routes for superAdmin
 
 exports.getAllCRM = async(req,res,next)=>{
     try {
