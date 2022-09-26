@@ -5,3 +5,11 @@
 1.4 Crm lar ro`yhatini beradigan route <bitdi >
 ...... barchasi hali yangilanadi. Sababi barchasining analitikasini ko`rib turish lozim bo`ladi.
 
+
+
+2. Teacher route lari
+2.1 Create teacher crm orqali. 
+2.2 Get teacher crm orqali
+2.3 Update teacher crm orqali
+2.4 Delete teacher crm orqali
+....... qo`shilishi mumkin.
