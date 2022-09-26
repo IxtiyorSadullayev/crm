@@ -9,7 +9,8 @@
 
 2. Teacher route lari
 2.1 Create teacher crm orqali. 
-2.2 Get teacher crm orqali
+2.2 Get all teachers crm orqali
+2.2.2 Get teacher by id crm orqali
 2.3 Update teacher crm orqali
 2.4 Delete teacher crm orqali
 ....... qo`shilishi mumkin.
