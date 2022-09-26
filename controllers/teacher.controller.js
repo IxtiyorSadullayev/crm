@@ -1,25 +1,24 @@
 const GeneretePassword = require('../helpers/generatePassword');
 const GenerateToken = require('../helpers/generateToken');
 const sendMessageEmail = require('../helpers/sendEmail');
-
 const SendMessage = require('../helpers/sendMessageUser');
 const TEACHER = require('./../models/teacher');
 
 exports.addTeacher = async (req, res, next) => {
     try {
         const crm = req.crm;
-        const { firstName, lastName, email, username, password, phone, science, } = req.body;
-        const condidate = await CRM.findOne({
+        const { firstName, lastName, email, username, password, phone, science } = req.body;
+        const condidate = await TEACHER.findOne({
             $or:
                 [
                     { firstName: firstName }, { lastName: lastName },
                     { email: email }, { username: username },
                     { password: password }, { phone: phone },
-                    { science: science },
                 ]
         });
+        console.log(condidate)
         if (condidate) {
-            return SendMessage(res, 400, `Ooops, This Teacher already exist`)
+            return SendMessage(res, 400, `Ooops, 🙈 This Teacher already exist`)
         }
         const saltpass = await GeneretePassword.GeneretePassword(password);
         const newTeacher = await TEACHER({
@@ -38,8 +37,7 @@ exports.addTeacher = async (req, res, next) => {
 exports.getAllTeachers = async (req, res, next) => {
     try {
         const crm = req.crm;
-        console.log(crm);
-        const teachers = await TEACHER.find();
+        const teachers = await TEACHER.find({crm_id:crm._id});
         SendMessage(res, 200, teachers)
     } catch (e) {
         SendMessage(res, 500, 'Internal Server Error.')
