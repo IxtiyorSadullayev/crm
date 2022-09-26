@@ -3,12 +3,12 @@ const mongoose = require('mongoose')
 
 const teacherSchema = new mongoose.Schema({
     crm_id:{type: mongoose.Schema.Types.ObjectId, ref:'CRM'},
-    lastName: {type: [String, 'Enter Teacher last name'], required:true, },
-    firstName: {type: [String, 'Enter Teacher first name'], required:true, },
-    username: {type: [String, 'Enter Teacher username'], required:true, unique:true},
-    password: {type: [String, 'Enter Teacher password'], required: true},
-    phone: {type: [String, 'Enter Teacher phone'], required: true, unique:true},
-    science:{type:[String,'Enter Teacher science'], required: true}
+    lastName: {required: [true, 'Enter Teacher last name'], type: String, },
+    firstName: {required: [true, 'Enter Teacher first name'], type: String, },
+    username: {required: [true, 'Enter Teacher username'], type: String, unique:true},
+    password: {required: [true, 'Enter Teacher password'], type: String},
+    phone: {required: [true, 'Enter Teacher phone'], type: String, unique:true},
+    science:{required:[true,'Enter Teacher science'], type: String}
 },{
     timestamps:true
 })
