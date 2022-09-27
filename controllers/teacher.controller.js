@@ -9,7 +9,7 @@ exports.addTeacher = async (req, res, next) => {
     try {
         const crm = req.crm;
         const { firstName, lastName, email, username, password, phone, science, } = req.body;
-        const condidate = await CRM.findOne({
+        const condidate = await TEACHER.findOne({
             $or:
                 [
                     { firstName: firstName }, { lastName: lastName },
@@ -19,7 +19,7 @@ exports.addTeacher = async (req, res, next) => {
                 ]
         });
         if (condidate) {
-            return SendMessage(res, 400, `Ooops, This Teacher already exist`)
+            return SendMessage(res, 400, `Ooops , This Teacher already exist`)
         }
         const saltpass = await GeneretePassword.GeneretePassword(password);
         const newTeacher = await TEACHER({
