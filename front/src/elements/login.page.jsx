@@ -1,7 +1,9 @@
 import { Box, Button, TextField, Typography } from '@mui/material'
 import React from 'react'
+import {useNavigate} from 'react-router-dom'
 
 function LoginPage({data, username, password, setUsername, setPassword, loading, loginuser}) {
+    const navigate=useNavigate();
   return (
     <div className='wrapper'>
         <Box
@@ -36,6 +38,7 @@ function LoginPage({data, username, password, setUsername, setPassword, loading,
             <br />
             <br />
             <Button sx={{width:200}} color='primary' onClick={()=> loginuser()}  variant='outlined' >Submit {loading ? 'Loading': ''}</Button>
+            {data ? <Button sx={{width:200}} color='error' onClick={()=> navigate('/resetpassword')} >Reset Password or Your data</Button>: ""}
         </Box>
     </div>
   )
