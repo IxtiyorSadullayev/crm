@@ -1,0 +1,2 @@
+1. Login qilishi uchun birinchi oynani chiqarishimiz kerak.
+1.1 login route ni qilish kerak.
