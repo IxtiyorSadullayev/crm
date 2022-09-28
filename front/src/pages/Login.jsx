@@ -35,6 +35,7 @@ function Login() {
         .then(res => {
           localStorage.setItem('token', res.data)
           navigate('/dashboard')
+          localStorage.setItem('loggin', 'true')
           setLoading(false)
         })     
         .catch(e=>{
@@ -43,7 +44,7 @@ function Login() {
         })
     
     }
-
+ 
     return (
     <>
         <LoginPage loginuser={loginuser} data={data}  username={username} setUsername={setUsername} password={password} setPassword={setPassword} loading ={loading} />

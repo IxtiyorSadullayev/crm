@@ -39,7 +39,15 @@ export default function SiteNavbar() {
                     <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
                         CRM platform
                     </Typography>
-                    <Button color="inherit" onClick={()=> navigate('/login')} >Login</Button>
+                    {
+                        localStorage.getItem('loggin')==="true"?
+                        <Button color="warning" onClick={()=> {
+                            localStorage.removeItem('loggin')
+                            navigate('/login')
+                        }} >Log out</Button>
+                        :<Button color="inherit" onClick={()=> navigate('/login')} >Login</Button>
+                    }
+
                 </Toolbar>
             </AppBar>
             <Box>
