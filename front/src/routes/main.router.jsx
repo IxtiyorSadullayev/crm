@@ -12,9 +12,7 @@ const MainRouter = () => {
         <Routes>
             <Route path='/' element={<SiteNavbar />} />
             <Route path='/login' element={<Login />} />
-            <Route path='/dashboard' element={<Dashboard />}>
-            </Route>
-            {/* <Route path='/dashboard/tests' element={<h1>Tests</h1>} /> */}
+            <Route path='/dashboard' index element={<Dashboard />} />
             <Route path='/resetpassword' element={<ResetPassword />} />
             <Route path='*' element={<Navigate to={'/login'} replace />} />
         </Routes>

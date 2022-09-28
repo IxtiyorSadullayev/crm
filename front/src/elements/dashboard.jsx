@@ -1,5 +1,6 @@
 import { Box } from '@mui/material'
 import React from 'react'
+import { Route, Routes } from 'react-router-dom'
 import MenuDashboard from './ElementsDashboard/MenuDashboard'
 
 function DashboardPage() {
@@ -9,7 +10,9 @@ function DashboardPage() {
                 <MenuDashboard />
             </Box>
             <Box className="windowDashboard">
-                Asosiy oynadagilar
+                <Routes>
+                    <Route path='/dashboard/tests' element={<h1>Test qani</h1>} />
+                </Routes>
             </Box>
         </Box>
 
