@@ -4,7 +4,7 @@ const CrmMiddleware = async (req,res,next) =>{
     try {
         const data = req.headers.authorization.split(' ');
         if(data[0] != 'Bearer'){
-            return SendMessage(res, 401, 'Un autorization')
+            return SendMessage(res, 401, 'Un autorization');
         }
         const token = data[1];
 
