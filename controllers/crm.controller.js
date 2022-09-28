@@ -26,6 +26,9 @@ exports.login = async(req,res,next)=>{
     try {
         const {userName, password} = req.body;
         const crm = await CRM.findOne({userName});
+        if(!crm){
+            return SendMessage(res, 404, 'CRM is not defined, Meybe your data is wrong')
+        }
         const tekshir = await GeneretePassword.ComparePassword(password, crm.password);
         if(!tekshir){
           return SendMessage(res, 404, "CRM is not defined. Meybe your data is wrong." )

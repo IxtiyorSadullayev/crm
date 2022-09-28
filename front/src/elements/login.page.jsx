@@ -8,7 +8,7 @@ function LoginPage({data, username, password, setUsername, setPassword, loading,
             sx={{width:500}}
             className='logincomponent'
         >
-            <Typography variant="h3" color='red'>
+            <Typography variant="h6" color='red'>
                 {data}
             </Typography>
             <TextField
