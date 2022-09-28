@@ -7,11 +7,7 @@ const TEACHER = require('./../models/teacher');
 exports.addTeacher = async (req, res, next) => {
     try {
         const crm = req.crm;
-<<<<<<< HEAD
-        const { firstName, lastName, email, username, password, phone, science } = req.body;
-=======
         const { firstName, lastName, email, username, password, phone, science, } = req.body;
->>>>>>> origin/master
         const condidate = await TEACHER.findOne({
             $or:
                 [
@@ -22,11 +18,7 @@ exports.addTeacher = async (req, res, next) => {
         });
         console.log(condidate)
         if (condidate) {
-<<<<<<< HEAD
-            return SendMessage(res, 400, `Ooops, 🙈 This Teacher already exist`)
-=======
             return SendMessage(res, 400, `Ooops , This Teacher already exist`)
->>>>>>> origin/master
         }
         const saltpass = await GeneretePassword.GeneretePassword(password);
         const newTeacher = await TEACHER({
