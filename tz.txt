@@ -14,3 +14,12 @@
 2.3 Update teacher crm orqali
 2.4 Delete teacher crm orqali
 ....... qo`shilishi mumkin.
+
+
+3. Student route lari.
+3.1 Create student crm orqali
+3.2 Get all students crm orqali
+3.3 Get One student crm orqali 
+3.4 Update student crm orqali.
+3.5 Create students by xlxs file. Shu route ni iloji bo`lsa isha tushirish.
+3.6 Bu taklif. Student test topshirishi uchun biz har bir o`quvchiga QR code orqali kiradigan qilsak nichik bo`ladi akan ?
