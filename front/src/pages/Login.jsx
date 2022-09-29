@@ -34,9 +34,9 @@ function Login() {
       client.post('/crm/login', {userName:username, password:password})
         .then(res => {
           localStorage.setItem('token', res.data)
-          navigate('/dashboard')
           localStorage.setItem('loggin', 'true')
           setLoading(false)
+          window.location.href='/'
         })     
         .catch(e=>{
           setLoading(false)

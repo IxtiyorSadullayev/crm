@@ -1,7 +1,7 @@
 import React from 'react'
 import {Accordion, AccordionDetails, AccordionSummary, List, ListItem, ListItemButton, ListItemText, Typography} from '@mui/material'
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
-import {useNavigate} from 'react-router-dom'
+import {Link, useNavigate} from 'react-router-dom'
 function AccardionElement({title, data}) {
     const navigate = useNavigate()
   return (
@@ -19,10 +19,11 @@ function AccardionElement({title, data}) {
             {data.map(x=>{
                 return <ListItem disablePadding key={x}>
                     <ListItemButton
-                        onClick={()=> navigate('/dashboard/'+x.link)}
+                        onClick={()=> navigate(x.link)}
                     >
                         <ListItemText primary={x.text} />
                     </ListItemButton>
+                    {/* <Link to={`${x.link}`}>{x.text}</Link> */}
                 </ListItem>
             })}
           </List>
