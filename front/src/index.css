@@ -30,3 +30,19 @@ code {
   opacity: .7;
   padding: 50px;
 }
+.dashboard{
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex: 1;
+}
+.menuDashboard{
+  flex: 0.2;
+  color: white;
+  background-color: rgb(10, 38, 139);
+  opacity: 0.6;
+  overflow: auto;
+}
+.windowDashboard{
+  flex: .8;
+}
