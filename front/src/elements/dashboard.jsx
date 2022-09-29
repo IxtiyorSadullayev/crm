@@ -11,7 +11,7 @@ function DashboardPage() {
             </Box>
             <Box className="windowDashboard">
                 <Routes>
-                    <Route path='/dashboard/tests' element={<h1>Test qani</h1>} />
+                    <Route path='dashboard/tests' element={<h1>Test qani</h1>} />
                 </Routes>
             </Box>
         </Box>
