@@ -5,6 +5,7 @@ import MenuDashboard from './ElementsDashboard/MenuDashboard'
 import {useNavigate} from 'react-router-dom'
 import CreateTeacher from '../pages/Teachers/CreateTeacher'
 import DashboardHeader from './dashboardHeader'
+import ListTeacher from '../pages/Teachers/ListTeacher'
 function DashboardPage() {
     const navigate = useNavigate();
     return (
@@ -21,7 +22,7 @@ function DashboardPage() {
                     <Route path='liststudents' element={<h1>List Student</h1>} />
                     <Route path='thismonthpayments' element={<h1>Payments</h1>} />
                     <Route path='createteacher' element={<CreateTeacher />} />
-                    <Route path='listteachers' element={<h1>Teachers list</h1>} />
+                    <Route path='listteachers' element={<ListTeacher/>} />
                     <Route path='teacherspayments' element={<h1>Payments Teacher</h1>} />
                     <Route path='teacherstests' element={<h1>Teachers tests</h1>} />
                     <Route path='teachersstudents' element={<h1>Teachers Students</h1>} />

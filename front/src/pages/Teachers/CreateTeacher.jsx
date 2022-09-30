@@ -13,23 +13,43 @@ function CreateTeacher() {
     const [password, setPassword] = React.useState('')
     const [phone, setPhone] = React.useState('')
     const [science, setScience] = React.useState('')
+    const [loading, setLoading]=React.useState(false)
+    const [data, setData] = React.useState('')
 
 
     const sendteacherdoc = async()=>{
+        setLoading(true)
         client.post('/teacher',{
             firstName:firstName, lastName:lastName, email:email, username:username, password:password, phone:phone, science:[science]
         })
         .then(res=>{
-            console.log(res)
+            // console.log(res)
+            setData('Teacher created successufly')
+            setFirstName('')
+            setLastName('')
+            setEmail('')
+            setUsername('')
+            setPassword('')
+            setPhone('')
+            setScience('')
         })
         .catch(err=>{
-            console.log(err)
+            if(err.response.status===400){
+                setData(err.response.data)
+                setLoading(false)
+            }
+            if(err.response.status===500){
+                setData(err.response.data + ' or your datas is not complect ')
+                setLoading(false)
+            }
         })
     }
 
   return (
     <WrapperDashboard >
         <Typography variant='h3' color={'black'}>Create Teacher</Typography>
+        <Typography color='red'>{data}</Typography>
+
         <InputElement label={'Teacher first name'} type={'text'} value={firstName} setValue={setFirstName}/>
         <InputElement label={'Teacher last name'} type={'text'} value={lastName} setValue={setLastName}/>
         <InputElement label={'Teacher email'} type={'email'} value={email} setValue={setEmail}/>
@@ -39,7 +59,7 @@ function CreateTeacher() {
         <InputElement label={'Teacher science'} type={'text'} value={science} setValue={setScience}/>
 
 
-        <Button variant='outlined' style={{margin:7, width:300}} onClick={()=>sendteacherdoc()} >Create</Button>
+        <Button variant='outlined' style={{margin:7, width:300}} onClick={()=>sendteacherdoc()} >Create {loading?'Loading':''}</Button>
 
     </WrapperDashboard>
   )
