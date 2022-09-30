@@ -46,3 +46,17 @@ code {
 .windowDashboard{
   flex: .8;
 }
+
+.appbar{
+  color: black;
+  padding: 10px;
+}
+
+.wrapperdashboard{
+  padding: 40px;
+}
+.elementsdashboard{
+  border: 1px solid rgba(0, 0, 0, 0.209);
+  padding: 10px;
+  box-shadow: 0px 0px 5px grey;
+}

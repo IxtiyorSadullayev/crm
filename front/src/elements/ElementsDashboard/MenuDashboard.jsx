@@ -1,5 +1,5 @@
 import React from 'react'
-import {Box, Button, Drawer, Typography} from '@mui/material'
+import { Box, Button, Drawer, Typography } from '@mui/material'
 import AccardionElement from '../accardion'
 import ListDrawer from '../drawer'
 
@@ -50,28 +50,41 @@ let monitoring = [
     }
 ]
 
+let science = [
+
+    {
+        text: "Add Science",
+        link: "addscience"
+    },
+    {
+        text: "Sciences list",
+        link: "listscience"
+    }
+]
+
 function MenuDashboard() {
     const [isDrawerOpen, setIsDrawerOpen] = React.useState(false);
 
-  return (
-    <>
-        <Typography variant='h4'  textAlign={'center'}><Button onClick={()=> setIsDrawerOpen(true)}>CRM platform</Button></Typography>
-        <Box>
+    return (
+        <>
+            <Typography variant='h4' textAlign={'center'}><Button onClick={() => setIsDrawerOpen(true)}>CRM platform</Button></Typography>
+            <Box>
                 <Drawer
                     open={isDrawerOpen}
-                    onClose={()=> setIsDrawerOpen(false)}
+                    onClose={() => setIsDrawerOpen(false)}
                     width='300px'
                 >
-                    <ListDrawer />                   
+                    <ListDrawer />
                 </Drawer>
             </Box>
-        <br />
-        <br />
-        <AccardionElement title={'Teachers'} data={teachers}/>
-        <AccardionElement title={'Students'} data={students}/>
-        <AccardionElement title={'Monitoring'} data={monitoring} />
-    </>
-  )
+            <br />
+            <br />
+            <AccardionElement title={'Teachers'} data={teachers} />
+            <AccardionElement title={'Students'} data={students} />
+            <AccardionElement title={'Monitoring'} data={monitoring} />
+            <AccardionElement title={'Science'} data={science} />
+        </>
+    )
 }
 
 export default MenuDashboard

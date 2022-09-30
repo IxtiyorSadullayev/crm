@@ -1,6 +1,6 @@
 const {model, Schema } = require("mongoose");
 
-const studentScheme = new Schema({
+const studentSchema = new Schema({
   crm_id: {
     type: Schema.Types.ObjectId,
     ref: "CRM",
@@ -10,12 +10,27 @@ const studentScheme = new Schema({
     type: [Schema.Types.ObjectId],
     ref: "TEACHER",
   },
+  userName: {
+    type: String,
+    required: true,
+    unique: true,
+  },
   firstName: {
     type: String,
     required: true,
     unique: true,
   },
   lastName: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  email: {
+    type: String,
+    required: true,
+    unique: true,
+  },
+  password: {
     type: String,
     required: true,
     unique: true,
@@ -35,4 +50,4 @@ const studentScheme = new Schema({
   { timestamps: true }
 );
 
-module.exports = model("STUDENT", studentScheme)
+module.exports = model("STUDENT", studentSchema)
