@@ -23,3 +23,9 @@
 3.4 Update student crm orqali.
 3.5 Create students by xlxs file. Shu route ni iloji bo`lsa isha tushirish.
 3.6 Bu taklif. Student test topshirishi uchun biz har bir o`quvchiga QR code orqali kiradigan qilsak nichik bo`ladi akan ?
+
+
+
+
+
+TOKEN 'Data01' = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJwYXlsb2FkIjp7Il9pZCI6IjYzMzY4MmY2MzY5MzNkNmNjNjIzOTQwNiIsIm5hbWVDZW50ZXIiOiJEYXRhMDEiLCJhZGRyZXNzIjoiTmF2b2l5IGtvYGNoYSAxLXV5IiwidXNlck5hbWUiOiJEYXRhMDEiLCJwaG9uZSI6Iis5OTg4ODk5OTY2ODgiLCJwYXNzd29yZCI6IiQyYiQxMCRBRDlDU0JQL2NsMTBnM0tXcGlxT211V1hDeFdSQ2Zib29OckN2NjRtbWU3Q05jOFhUcEhZRyIsImVtYWlsIjoiZGF0YUBnbWFpbC5jb20iLCJjcmVhdGVkQXQiOiIyMDIyLTA5LTMwVDA1OjQ3OjM0LjM0NloiLCJ1cGRhdGVkQXQiOiIyMDIyLTA5LTMwVDA1OjQ3OjM0LjM0NloiLCJfX3YiOjB9LCJpYXQiOjE2NjQ1MTY5MTgsImV4cCI6MTY2NDUyMDUxOH0.zgezRbVHD_N2658znAjRMaYQM3asVslPlSxApXJmm0k"

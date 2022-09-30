@@ -9,7 +9,7 @@ exports.addStudent = async (req, res, next) => {
   try {
     const crm = req.crm;
     const { firstName, lastName, email,
-      password, dateBorn, phone, userName } = req.body;
+      password, dateBorn, phone, userName, teacher_id } = req.body;
 
     const condidate = await STUDENT.findOne({
       $or: [
@@ -18,7 +18,7 @@ exports.addStudent = async (req, res, next) => {
         { password: password }, { phone: phone },
         { dateBorn: dateBorn },
       ]
-    });
+    })
     // console.log(condidate);
     if (condidate) {
       return SendMessage(res, 400, 'This user already exist')
@@ -28,6 +28,7 @@ exports.addStudent = async (req, res, next) => {
     const newStudent = await STUDENT({
       crm_id: crm._id,
       userName: userName,
+      teacher_id: teacher_id,
       firstName: firstName,
       lastName: lastName,
       email: email,

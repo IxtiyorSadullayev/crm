@@ -12,10 +12,12 @@ function CreateTeacher() {
     const [username, setUsername] = React.useState('')
     const [password, setPassword] = React.useState('')
     const [phone, setPhone] = React.useState('')
+    const [science, setScience] = React.useState('')
+
 
     const sendteacherdoc = async()=>{
         client.post('/teacher',{
-            firstName:firstName, lastName:lastName, email:email, userName:username, password:password, phone:phone
+            firstName:firstName, lastName:lastName, email:email, username:username, password:password, phone:phone, science:[science]
         })
         .then(res=>{
             console.log(res)
@@ -34,6 +36,8 @@ function CreateTeacher() {
         <InputElement label={'Teacher username'} type={'text'} value={username} setValue={setUsername}/>
         <InputElement label={'Teacher password'} type={'password'} value={password} setValue={setPassword}/>
         <InputElement label={'Teacher phone'} type={'tel'} value={phone} setValue={setPhone}/>
+        <InputElement label={'Teacher science'} type={'text'} value={science} setValue={setScience}/>
+
 
         <Button variant='outlined' style={{margin:7, width:300}} onClick={()=>sendteacherdoc()} >Create</Button>
 

@@ -1,8 +1,8 @@
-const mongoose = require('mongoose')
+const {Schema, model} = require('mongoose')
 
 
-const teacherSchema = new mongoose.Schema({
-    crm_id:{type: mongoose.Schema.Types.ObjectId, ref:'CRM'},
+const teacherSchema = new Schema({
+    crm_id:{type: Schema.Types.ObjectId, ref:'CRM'},
     lastName: {required: [true, 'Enter Teacher last name'], type: String, },
     firstName: {required: [true, 'Enter Teacher first name'], type: String, },
     username: {required: [true, 'Enter Teacher username'], type: String, unique:true},
@@ -13,5 +13,5 @@ const teacherSchema = new mongoose.Schema({
 },{
     timestamps:true
 })
-
-module.exports = mongoose.model('TEACHER', teacherSchema);
+ 
+module.exports = model('TEACHER', teacherSchema);
