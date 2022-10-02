@@ -13,7 +13,7 @@ exports.addTeacher = async (req, res, next) => {
                     { phone: phone },
                 ]
         });
-        console.log(condidate)
+        // console.log(condidate)
         if (condidate) {
           return SendMessage(res, 400, `Ooops , This Teacher already exist`)
         }

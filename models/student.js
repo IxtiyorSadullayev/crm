@@ -1,11 +1,7 @@
 const {model, Schema } = require("mongoose");
 
 const studentSchema = new Schema({
-  crm_id: {
-    type: Schema.Types.ObjectId,
-    ref: "CRM",
-    required: true,
-  },
+  
   teacher_id: {
     type: [Schema.Types.ObjectId],
     ref: "TEACHER",
