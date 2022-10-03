@@ -21,6 +21,7 @@
   "homepage": "https://github.com/IxtiyorSadullayev/crm#readme",
   "dependencies": {
     "@mui/icons-material": "^5.10.6",
+    "@mui/x-data-grid": "^5.17.5",
     "bcrypt": "^5.0.1",
     "cors": "^2.8.5",
     "dotenv": "^16.0.2",

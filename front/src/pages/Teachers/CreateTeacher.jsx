@@ -42,6 +42,10 @@ function CreateTeacher() {
                 setData(err.response.data + ' or your datas is not complect ')
                 setLoading(false)
             }
+            if(err.response.status===401){
+                localStorage.clear()
+                window.location.href='/login'
+            }
         })
     }
 

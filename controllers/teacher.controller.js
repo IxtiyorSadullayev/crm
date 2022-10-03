@@ -39,6 +39,7 @@ exports.addTeacher = async (req, res, next) => {
 exports.getAllTeachers = async (req, res, next) => {
   try {
     const crm = req.crm;
+    console.log('Sorov bolmoqda')
     const teachers = await TEACHER.find({ crm_id: crm._id });
     if(!teachers || teachers.length===0){
       return SendMessage(res, 404, 'Teacher not found')
