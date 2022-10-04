@@ -3,7 +3,6 @@ const SendMessage = require('./sendMessageUser');
 const CrmMiddleware = async (req,res,next) =>{
     try {
         const data = req.headers.authorization.split(' ');
-        console.log('SO`rov')
         if(data[0] !== 'Bearer' || !data){
             return SendMessage(res, 401, 'Un autorization');
         }
@@ -14,7 +13,7 @@ const CrmMiddleware = async (req,res,next) =>{
                 return SendMessage(res,401,"Not Autorization")
             }
             
-            req.crm = decode.payload
+            req.crm = decode.payload;
             next();
         })
 

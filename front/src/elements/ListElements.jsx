@@ -5,7 +5,11 @@ import Show from '@mui/icons-material/ShowChart';
 
 
 
-export default function ListElements({ data }) {
+export default function ListElements({ data, del }) {
+
+  
+
+
   const columns = [
     { field: 'lastName', headerName: 'Last Name', width: 130 },
     { field: 'firstName', headerName: 'First name', width: 130 },
@@ -54,9 +58,7 @@ export default function ListElements({ data }) {
   })
 
 
-  const del = async (id) => {
-    console.log("Deleted", id)
-  }
+  
 
   return (
     <div style={{ height: 400, width: '100%' }}>

@@ -10,17 +10,6 @@ function ListTeacher() {
     React.useEffect(()=>{
         client.get('/teacher')
         .then(res=>{
-            // console.log(res)
-            // let malumotlar = res.data.map(x=>{
-            //     return {
-            //         lastName: x.lastName,
-            //         firstName: x.firstName,
-            //         username: x.username,
-            //         phone: x.phone,
-            //         science: x.science[0]
-            //     }
-            // })
-            // console.log(malumotlar)
             setTeachers(res.data)
 
         })
@@ -37,13 +26,22 @@ function ListTeacher() {
                 window.location.href = '/login'
             }
         })
-    },[])
+    },[teachers])
 
+    const del = async (id) => {
+
+        let tekshir = window.confirm("Siz rostdan ham o`chirmoqchimisiz ?")
+        console.log(tekshir)
+        if(tekshir){
+            client.delete('/teacher/'+id)
+        }
+        console.log('/teacher/'+id)
+      }
     return (
         <WrapperDashboard>
             <Typography variant='h3' color={'black'}>List Teachers</Typography>
             <Typography color='red'>{data}</Typography>
-            <ListElements  data={teachers} />
+            <ListElements  data={teachers} del={del} />
         </WrapperDashboard>
     )
 }

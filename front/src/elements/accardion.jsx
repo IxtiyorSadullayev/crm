@@ -23,7 +23,6 @@ function AccardionElement({title, data}) {
                     >
                         <ListItemText primary={x.text} />
                     </ListItemButton>
-                    {/* <Link to={`${x.link}`}>{x.text}</Link> */}
                 </ListItem>
             })}
           </List>
