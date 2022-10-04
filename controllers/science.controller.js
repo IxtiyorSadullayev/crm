@@ -11,7 +11,7 @@ exports.addScience = async (req, res, next) => {
       return SendMessage(res, 400, 'This scince already exist')
     }
 
-    const newScience = new SCIENCE({ crm_id: crm._id, scienceName });
+    const newScience = await new SCIENCE({ crm_id: crm._id, scienceName });
     await newScience.save();
     SendMessage(res, 200, newScience)
 
@@ -20,7 +20,7 @@ exports.addScience = async (req, res, next) => {
   }
 }
 
-exports.getSciences = async (req, res, next) => {
+exports.getAllSciences = async (req, res, next) => {
   try {
     const crm = req.crm;
     const sciences = await SCIENCE.find({ crm_id: crm._id });
