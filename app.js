@@ -12,6 +12,8 @@ app.use('/', require('./routers/crm.router'))
 app.use('/teacher', require('./routers/teacher.router'))
 app.use('/student', require('./routers/student.router'))
 app.use('/science', require('./routers/science.router'))
+app.use('/payment', require('./routers/payment.router'))
+
 
 
 app.use((req,res,next)=>{

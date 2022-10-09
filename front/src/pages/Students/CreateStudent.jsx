@@ -33,16 +33,15 @@ function CreateStudent() {
             phone: phone
         })
             .then(res =>{
-                setData('Student successufly created')
-                setError(false)
-                setTeacher_id('')
                 setUserName('')
                 setfirstName('')
                 setLastName('')
                 setEmail('')
                 setPassword('')
-                setData('')
+                setDateBorn('')
                 setPhone('')
+                setError(false)
+                setData('Student successufly created')
             })
             .catch(err =>{
                 if(err.response.status === 400){

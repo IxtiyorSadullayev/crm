@@ -12,6 +12,7 @@ import TeachersStudents from '../pages/Teachers/TeachersStudents'
 import Glavniy from '../pages/Glavniy/Glavniy'
 import CreateStudent from '../pages/Students/CreateStudent'
 import ListStudent from '../pages/Students/ListStudent'
+import StudentPayments from '../pages/Students/StudentPayments'
 function DashboardPage() {
     return (
         <Box className="dashboard">
@@ -25,7 +26,7 @@ function DashboardPage() {
                     <Route path='/' index element={<Glavniy />} />
                     <Route path='createstudent' element={<CreateStudent />} />
                     <Route path='liststudents' element={<ListStudent />} />
-                    <Route path='thismonthpayments' element={<h1>Payments</h1>} />
+                    <Route path='thismonthpayments' element={<StudentPayments />} />
                     <Route path='createteacher' element={<CreateTeacher />} />
                     <Route path='listteachers' element={<ListTeacher/>} />
                     <Route path='teacherspayments' element={<TeachersPayments />} />
