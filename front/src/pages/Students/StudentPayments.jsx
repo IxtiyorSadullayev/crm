@@ -17,9 +17,29 @@ function StudentPayments() {
     const [student_id, setStudent_id] = React.useState('')
     const [date, setDate] = React.useState('')
     const [message, setMessage] = React.useState('')
+    const [tolovlar, setTolovlar] = React.useState([])
     const paymentbtn = () => {
         setPayment(true)
         setAddpayment(false)
+        client.get('/payment')
+            .then(res => {
+                setTolovlar(res.data)
+            })
+            .catch(err => {
+                switch (err.response.status) {
+                    case 400: {
+                        break;
+                    }
+                    case 500: {
+                        break;
+                    }
+                    case 401: {
+                        localStorage.clear()
+                        window.location.href = '/login'
+                    }
+                }
+            })
+
     }
 
     const addpaymentbtn = () => {
@@ -27,7 +47,7 @@ function StudentPayments() {
         setAddpayment(true)
     }
 
-    
+
 
 
     React.useEffect(() => {
@@ -49,6 +69,8 @@ function StudentPayments() {
                     }
                 }
             })
+
+
     }, [])
 
     const studentHundler = (e) => {
@@ -62,8 +84,8 @@ function StudentPayments() {
                 <h1>Payments students  {message}  </h1>
                 <Button variant='outlined' onClick={paymentbtn} style={{ marginRight: 5 }} >Show Payments</Button>
                 <Button variant='outlined' onClick={addpaymentbtn} color='error' >Add Payments</Button>
-                {payment ? 'Bor' : ''}
-                {addpayment ? <AddPayment setMessage={setMessage} studentHundler={studentHundler} setCount={setCount} date={date} setDate={setDate}  count={count} students={students} student_id={student_id} /> : ''}
+                {payment ? <Payments data={tolovlar} /> : ''}
+                {addpayment ? <AddPayment setMessage={setMessage} studentHundler={studentHundler} setCount={setCount} date={date} setDate={setDate} count={count} students={students} student_id={student_id} /> : ''}
             </WrapperDashboard>
         </>
     )
@@ -88,59 +110,65 @@ const Payments = ({ data }) => {
 
     }
 
+
     return (
-        <table className='listcha_wrapper'>
-            <tr>
-                <th>T/r</th>
-                <th>ID</th>
-                <th>Student</th>
-                <th>Data Born</th>
-                <th>Phone</th>
-                <th>Created at</th>
-                <th>Actions</th>
-
-            </tr>
-
+        <>
             {
-                data.map((x, index) => {
-                    return (
+                data.length === 0 ? <p>Payments Not Found</p> :
+                    <table className='listcha_wrapper' style={{marginTop: 10}}>
                         <tr>
-                            <td>{index + 1}</td>
-                            <td>{x._id}</td>
-                            <td>{`${x.lastName} ${x.firstName}`}</td>
-                            <td>{x.dateBorn}</td>
-                            <td>{x.phone}</td>
-                            <td>{x.createdAt}</td>
-                            <td>
-                                <Delete onClick={() => deleteStudent(x._id)} style={{ color: 'red' }} />
-                                <ShowData onClick={() => showStudent(x._id)} />
-                            </td>
+                            <th>T/r</th>
+                            <th>ID</th>
+                            <th>Student</th>
+                            <th>Data Born</th>
+                            <th>Phone</th>
+                            <th>Created at</th>
+                            <th>Actions</th>
+
                         </tr>
-                    )
-                })
+
+                        {
+                            data.map((x, index) => {
+                                return (
+                                    <tr key={index}>
+                                        <td>{index + 1}</td>
+                                        <td>{x._id}</td>
+                                        <td>{`${x.student_id.lastName} ${x.student_id.firstName}`}</td>
+                                        <td>{x.student_id.dateBorn}</td>
+                                        <td>{x.student_id.phone}</td>
+                                        <td>{x.createdAt}</td>
+                                        <td>
+                                            <Delete onClick={() => deleteStudent(x._id)} style={{ color: 'red' }} />
+                                            <ShowData onClick={() => showStudent(x._id)} />
+                                        </td>
+                                    </tr>
+                                )
+                            })
+                        }
+
+
+                    </table>
             }
-
-
-        </table>
+        </>
     )
 }
 
 
-const AddPayment = ({setMessage, studentHundler, students, student_id, setCount, count , date,  setDate}) => {
+const AddPayment = ({ setMessage, studentHundler, students, student_id, setCount, count, date, setDate }) => {
 
-    const AddPaymentbtn = async() =>{
-        
+    const AddPaymentbtn = async () => {
+
         client.post('/payment', {
             student_id: student_id,
             count: count,
             date: date
         })
-            .then(res =>{
+            .then(res => {
                 // console.log(res)
                 setMessage(res.data)
-                window.location.href='/thismonthpayments'
+                window.location.href = '/thismonthpayments'
             })
-            .catch(err =>{
+            .catch(err => {
                 console.log(err)
             })
     }

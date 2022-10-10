@@ -19,7 +19,6 @@ exports.addStudent = async (req, res, next) => {
         { dateBorn: dateBorn },
       ]
     })
-    // console.log(condidate);
     if (condidate) {
       return SendMessage(res, 400, 'This user already exist')
     }

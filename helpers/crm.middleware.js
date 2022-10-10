@@ -9,7 +9,6 @@ const CrmMiddleware = async (req,res,next) =>{
         const token = data[1];
         jwt.verify(token, process.env.SECRET, (err, decode)=>{
             if(err){
-                console.log(err)
                 return SendMessage(res,401,"Not Autorization")
             }
             
@@ -18,7 +17,6 @@ const CrmMiddleware = async (req,res,next) =>{
         })
 
     } catch (e) {
-        console.log(e)
         SendMessage(res, 500, 'Internal Server Error');
     }
 }

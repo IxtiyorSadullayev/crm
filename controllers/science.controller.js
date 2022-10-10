@@ -1,4 +1,6 @@
 const SCIENCE = require("../models/science");
+const TEACHER = require('../models/teacher')
+const STUDENT = require('../models/student')
 const SendMessage = require('../helpers/sendMessageUser');
 
 
@@ -24,11 +26,21 @@ exports.getAllSciences = async (req, res, next) => {
   try {
     const crm = req.crm;
     const sciences = await SCIENCE.find({ crm_id: crm._id });
+    const teachers = await TEACHER.find({crm_id: crm._id});
+    let science = sciences.map(data =>{
+      return {
+        _id: data._id,
+        scienceName: data.scienceName,
+        teachers: teachers.filter(x => {
+          return x.science==data._id.toString()
+        }).length,
+      }
+    })
     if (!sciences || sciences.length === 0) {
       return SendMessage(res, 404, "There is no science yet")
     }
 
-    SendMessage(res, 200, sciences)
+    SendMessage(res, 200, science)
   } catch(e){
     SendMessage(res, 500, 'Internal Server Error')
   }

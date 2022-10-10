@@ -13,22 +13,10 @@ exports.addTeacher = async (req, res, next) => {
                     { phone: phone },
                 ]
         });
-        // console.log(condidate)
         if (condidate) {
           return SendMessage(res, 400, `Ooops , This Teacher already exist`)
         }
     const saltpass = await GeneretePassword.GeneretePassword(password);
-    // const newTeacher = await TEACHER({
-    //   crm_id: crm._id,
-    //   firstName: firstName,
-    //   lastName: lastName,
-    //   email: email,
-    //   username: username,
-    //   phone: phone,
-    //   password: saltpass,
-    //   science: science,
-    // });
-    // await newTeacher.save();
     const newTeacher = await TEACHER.create({crm_id:crm._id, firstName: firstName, lastName:lastName, email: email, username:username, password:saltpass, phone:phone, science:science})
     SendMessage(res, 201, newTeacher);
   } catch (e) {
@@ -39,8 +27,7 @@ exports.addTeacher = async (req, res, next) => {
 exports.getAllTeachers = async (req, res, next) => {
   try {
     const crm = req.crm;
-    console.log('Sorov bolmoqda')
-    const teachers = await TEACHER.find({ crm_id: crm._id });
+    const teachers = await TEACHER.find({ crm_id: crm._id }).populate('science');
     if(!teachers || teachers.length===0){
       return SendMessage(res, 404, 'Teacher not found')
     }

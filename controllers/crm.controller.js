@@ -34,7 +34,6 @@ exports.login = async(req,res,next)=>{
           return SendMessage(res, 404, "CRM is not defined. Meybe your data is wrong." )
         }
         const token = await GenerateToken(crm);
-        console.log(token + '11221')
         res.status(200).json(token)
     } catch (e) {
         SendMessage(res, 500, 'Internal Server Error')

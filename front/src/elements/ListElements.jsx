@@ -53,7 +53,7 @@ export default function ListElements({ data, del }) {
       firstName: x.firstName,
       username: x.username,
       phone: x.phone,
-      science: x.science[0]
+      science: x.science.scienceName
     }
   })
 

@@ -5,7 +5,8 @@ function DashboardHeader() {
     
   return (
     <Box className="appbar">
-        <Typography variant='h5'>Dashboard Crm Platform</Typography>
+        <p>This site creator Hamidjon Sarsenov & Ixtiyor Sadullayev</p>
+        <p>Phones: +998937123822, +998913044737</p>
     </Box>
     )
 }
